@@ -11,3 +11,7 @@ insert into employee_payroll (name, salary, start) values ( 'bill',100000.00,'20
 
 #UC4- Ability to retrieve all the employee payroll data that is added to payroll service database
 select * from employee_payroll;
+
+#UC5- 
+select salary from employee_payroll where name='bill';
+select * from employee_payroll where start between CAST('2018-01-01' AS DATE)AND DATE(NOW());
