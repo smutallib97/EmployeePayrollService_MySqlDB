@@ -42,3 +42,9 @@ alter table payroll_service.employee_payroll add deductions double not null afte
 alter table payroll_service.employee_payroll add taxablePay double not null after deductions;
 alter table payroll_service.employee_payroll add netPay double not null after taxablePay;
 alter table payroll_service.employee_payroll add income_tax double not null after taxablePay;
+
+#UC10
+update payroll_service.employee_payroll set department = "Sales" where id = '2';
+insert into payroll_service.employee_payroll (name, department, gender, basic_pay, deductions, taxablePay, income_tax, netPay, start)
+ values ("terisa", "Marketing", 'F', 3000000.00, 1000000.00, 2000000.00, 500000.00, 1500000.00, '2018-01-03');
+select * from payroll_service.employee_payroll where name= "terisa";
