@@ -36,3 +36,9 @@ alter table payroll_service.employee_payroll add phone_number varchar(25) after 
 alter table payroll_service.employee_payroll add address varchar(100) DEFAULT 'TBD' after phone_number;
 alter table payroll_service.employee_payroll add department varchar(150) not null after address;
 
+#UC9
+alter table payroll_service.employee_payroll rename column salary to basic_pay;
+alter table payroll_service.employee_payroll add deductions double not null after basic_pay;
+alter table payroll_service.employee_payroll add taxablePay double not null after deductions;
+alter table payroll_service.employee_payroll add netPay double not null after taxablePay;
+alter table payroll_service.employee_payroll add income_tax double not null after taxablePay;
