@@ -70,5 +70,9 @@ select min(salary) from payroll_service.employee;
 select max(salary) from payroll_service.employee;
 select count(salary) from payroll_service.employee;
 
-
+#UC12
+select * from payroll_service.employee;
+select * from payroll_service.employee_department;
+select salary from payroll_service.employee where name='sahil';
+select * from payroll_service.employee where DOJ between CAST('2020-07-01' AS DATE)AND DATE(NOW());
 
