@@ -48,3 +48,27 @@ update payroll_service.employee_payroll set department = "Sales" where id = '2';
 insert into payroll_service.employee_payroll (name, department, gender, basic_pay, deductions, taxablePay, income_tax, netPay, start)
  values ("terisa", "Marketing", 'F', 3000000.00, 1000000.00, 2000000.00, 500000.00, 1500000.00, '2018-01-03');
 select * from payroll_service.employee_payroll where name= "terisa";
+
+#UC11
+show databases;
+use payroll_service;
+create table Employee (Emp_ID int not null auto_increment, Emp_Name varchar(45) not null, Gender varchar(10) not null, 
+DOJ date not null, Department varchar(45) not null, Salary double not null, primary key (Emp_ID));
+insert into Employee (Emp_Name, Gender, DOJ, Department, Salary) values ("Sahil", "Male", '2020-11-20', "IT", 1800000), 
+("Amresh", "Male", '2020-06-10', "IT", 2000000), ("Sakshi", "Female", '2020-11-20', "Marketing", 1500000),
+("Aisha", "Female", '2020-11-20', "Marketing", 1700000);
+select * from Employee;
+create table Employee_Department (Dept_ID int not null primary key, Department varchar(45) not null,
+ Designation varchar(45) not null, foreign key (Dept_ID) references Employee(Emp_ID));
+ insert into Employee_Department (Dept_ID, Department, Designation) values (1, "IT", "Junior Developer"), (2, "IT", "Junior Developer"),
+ (3, "Marketing", "Junior Executive"), (4, "Marketing", "Junior Executive");
+ select * from Employee_Department;
+select sum(salary) from payroll_service.employee where gender = 'Female' group by gender;
+select sum(salary) from payroll_service.employee where gender = 'Male' group by gender;
+select avg(salary) from payroll_service.employee;
+select min(salary) from payroll_service.employee;
+select max(salary) from payroll_service.employee;
+select count(salary) from payroll_service.employee;
+
+
+
